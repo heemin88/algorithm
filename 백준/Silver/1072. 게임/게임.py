@@ -1,22 +1,15 @@
-import sys
-input = sys.stdin.readline
- 
- 
-X, Y = map(int, input().split())
-Z = (Y * 100) // X
-if Z >= 99:
-    print(-1)
+arr = input().split()
+x = int(arr[0]) # 게임 횟수
+y= int(arr[1]) # 이긴 게임
+z = (y*100) // x
+left =1
+right = x
+if z >=99 : print(-1)
 else:
-    answer = 0
-    left = 1
-    right = X
- 
     while left <= right:
-        mid = (left + right) // 2
-        if (Y+mid)*100 // (X+mid) <= Z:
-            left = mid+1
-        else:
-            answer = mid
+        mid = (left+right)//2
+        if ((mid+y)*100)//(x+mid) > z:
             right = mid - 1
- 
-    print(answer)
+        else:
+            left = mid + 1
+    print(left)
