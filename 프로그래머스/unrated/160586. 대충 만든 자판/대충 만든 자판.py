@@ -13,7 +13,7 @@ def solution(keymap, targets):
         input = list(targets[i])
         cnt = 0
         for j in range(len(input)):
-            if input[j] not in dict:
+            if dict.get(input[j],0)==0:
                 cnt = -1
                 break
             else:
