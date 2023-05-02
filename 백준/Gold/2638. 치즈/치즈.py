@@ -7,12 +7,8 @@ answer = 0
 cheese =[]
 dx =[-1,1,0,0]
 dy = [0,0,-1,1]
-c_cnt=0
 for i in range(n):
     cheese.append(list(map(int,input().split())))
-    for j in cheese[i]:
-        if j == 1:
-            c_cnt+=1
 visited = [[False for _ in range(m)] for _ in range(n)]
 def in_space(x,y): #외부 공기 표시
     cheese[x][y] = -1
@@ -33,7 +29,7 @@ def check(x,y): #상하좌우 중 두곳이 0인지 확인하는 함
     if cnt >= 2: return True
     return False
 in_space(0,0) # 외부 공기 -1처리
-while c_cnt >0:
+while True:
     count =0
     tmp =[]
     for i in range(1,n-1):
@@ -41,7 +37,8 @@ while c_cnt >0:
             if cheese[i][j] == 1:
                 if check(i,j):
                     tmp.append([i,j])
-                    c_cnt -=1
+                    count +=1
+    if count == 0: break
     for x,y in tmp:
         in_space(x,y)
     #print(cheese)
