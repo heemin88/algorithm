@@ -1,11 +1,10 @@
-import re
-import math
+
 def int2base(num,k):
     res = ''
     while num>0:
         num , mod = divmod(num,k)
         res+=str(mod)
-    return res[::-1]
+    return res[::-1]#String값을 거꾸로 변환해줘야 원하는 진수값이 들어가 있음.
 def is_sosu(num):
     if num <=1 : return False
     for i in range(2,int(num**(0.5))+1):
