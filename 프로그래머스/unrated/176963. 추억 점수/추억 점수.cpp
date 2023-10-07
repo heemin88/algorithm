@@ -13,7 +13,10 @@ vector<int> solution(vector<string> name, vector<int> yearning, vector<vector<st
     for(int i = 0 ; i< photo.size();i++){
         int s = 0;
         for (int j =0 ; j< photo[i].size();j++){
-            s += score[photo[i][j]];
+            map<string,int>::iterator item = score.find(photo[i][j]);
+            if (item != score.end()){
+                s += score[photo[i][j]];        
+            }
         }
         answer.push_back(s);
     }
